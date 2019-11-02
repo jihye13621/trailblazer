@@ -82,6 +82,48 @@
         <!-- <script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script> -->
         <script src="js/map.js"></script>
 
+        <!-- FIREBASE -->
+        
+        <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+
+        <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
+
+        <!-- Add Firebase products that you want to use -->
+        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+
+        <script>
+            // TODO: Replace the following with your app's Firebase project configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyBduZ16r-ODpyRUEu_8BpDPIIAsjK4RwyE",
+                authDomain: "hexagon-ce5fd.firebaseapp.com",
+                databaseURL: "https://hexagon-ce5fd.firebaseio.com",
+                projectId: "hexagon-ce5fd",
+                storageBucket: "hexagon-ce5fd.appspot.com",
+                messagingSenderId: "520967238203",
+                appId: "1:520967238203:web:a3ff76c422ae57476c221e",
+                measurementId: "G-FCJ8RLF32E"
+            }
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig)
+            firebase.analytics()
+            const db = firebase.firestore()
+            const coordRef = db
+            .collection("coordinates")
+            .where("postedBy", "==", "rSTZWwjvwVg6ijEIKLysTYSOGzt2")
+            .get()
+            .then(function(querySnapshot) {
+                querySnapshot.forEach(function(doc) {
+                // doc.data() is never undefined for query doc snapshots
+                console.log(doc.id, " => ", doc.data())
+                })
+            })
+            .catch(function(error) {
+                console.log("Error getting documents: ", error)
+            })
+        </script>
 
         
     </body>
