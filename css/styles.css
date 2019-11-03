@@ -40,3 +40,10 @@
 .modal .close {
     color: white;
 }
+#ThreeJsCanvas{
+    position:fixed;
+    margin:0 auto;
+    /* left:8%; */
+    z-index: -1;
+    opacity:0.4
+}

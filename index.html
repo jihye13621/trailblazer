@@ -8,10 +8,13 @@
         <title>Trailblazer</title>
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        
+        <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
+
         <style>
         /* custom styles here */
-        
+            body {
+                font-family: 'Titillium Web', sans-serif !important;
+            }
         </style>
 
         <!-- Custom styles for this template -->
@@ -20,46 +23,51 @@
     <body>
         <header>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#">Trailblazer</a>
+                <div class="container">
+                    <a class="navbar-brand" href="#">Trailblazer</a>
 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Map</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Views
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Settings</a>
-                    </li>
-                    </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Map</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Views
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#">Settings</a>
+                        </li>
+                        </ul>
+                        <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                    </div>
                 </div>
             </nav>
         </header>
 
-        <main role="main">            
+        <main role="main">          
+            <span id="ThreeJsCanvas"></span>  
             <section class="jumbotron text-center">
+                <!-- <span id="ThreeJsCanvas"></span> -->
                 <div class="container">
+                    <!-- <span id="ThreeJsCanvas"></span> -->
                     <h1 class="jumbotron-heading">Trailblazer</h1>
                     <p class="lead text-muted">search, discover</p>
                     <p>
@@ -71,7 +79,7 @@
 
             <div class="container">
                 <div class="border-box">
-                    <div class="canvas-drag-drop" id="canvas"></div>
+                    <div class="canvas-drag-drop mx-auto" id="canvas"></div>
                         
                     <div class="row">
 
@@ -100,13 +108,10 @@
 
         </main>
 
-        <footer class="text-muted">
+        <footer class="container-fluid text-muted my-5 py-5" style="background: white;">
             <div class="container">
-                <p class="float-right">
-                <a href="#">Back to top</a>
-                </p>
-                <p>Lorem Ipseum aosidjo iajso djaosidja sdnioajsdoi jasoidjoasijd</p>
-                <p>FAQ? <a href="/">Visit the homepage</a> or read our <a href="">getting started guide</a>.</p>
+                <p class="float-right"><a href="#">Back to top</a></p>
+                <p>© 2019 Trailblazer · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
             </div>
         </footer>
 
@@ -156,6 +161,106 @@
         </script>
         
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeMylrl_a0pmIlOGe43xYDYSuQ_fByccA&callback=myMap"></script>
-
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r69/three.min.js"></script>
+        <script>
+            var scene3d = document.getElementById("ThreeJsCanvas");
+            var CANVAS_WIDTH = 1900;
+            var CANVAS_HEIGHT = 900;
+        
+            // SCENE
+            var scene_header = new THREE.Scene();
+        
+            // CAMERA
+            camera_header = new THREE.PerspectiveCamera(75, CANVAS_WIDTH / CANVAS_HEIGHT, 0.1, 1000);
+            camera_header.position.set(0, 0, 150);
+            camera_header.lookAt(scene_header.position);
+        
+            // RENDERER
+            // transparent div background color
+            var renderer_header = new THREE.WebGLRenderer( { alpha: true } );
+            renderer_header.setClearColor( 0x000000, 0 );
+            renderer_header.setSize(CANVAS_WIDTH, CANVAS_HEIGHT);
+        
+            // GEOMETRY & MATERIALS
+            // outlined sphere
+            var geometry_sphere1 = new THREE.SphereGeometry( 80, 80, 80, 5, 5, 5 );
+            var material_phong_outlined = new THREE.MeshPhongMaterial({
+                color: 0xffffff,
+                shininess:30,
+                opacity: 0.4,
+                specular: 0xeeeeee,
+                wireframe: true
+            });
+        
+            var cube_outlined = new THREE.Mesh(geometry_sphere1, material_phong_outlined);
+            scene_header.add(cube_outlined);
+            cube_outlined.castShadow = true;
+            cube_outlined.receiveShadow = true;
+            material_phong_outlined.transparent=true;
+        
+            cube_outlined.position.y = -40;
+            cube_outlined.rotation.y = 15;
+        
+            // materials
+            var lambertMaterial = new THREE.MeshLambertMaterial({
+                opacity: 0.1,
+                color: 0x50acfd
+            });
+            lambertMaterial.transparent=true;
+        
+            var color = new THREE.Color( "#50acfd" );
+            var material_phong_shiny = new THREE.MeshPhongMaterial( {
+                color: color.getHex(),
+                // opacity: 0.9,
+                specular: 0xffffff,
+                shinyness: 100
+            } );
+        
+            //torus
+            var geometry_torus = new THREE.TorusKnotGeometry( 0, 80, 80);
+            var geometry_otherTorus = new THREE.TorusKnotGeometry( 40, 3.5, 100, 10 );
+        
+            var mesh_otherTorus = new THREE.Mesh( geometry_torus, lambertMaterial );
+            var mesh_mesh_outline = new THREE.Mesh( geometry_torus, material_phong_outlined );
+        
+            scene_header.add( mesh_otherTorus );
+            scene_header.add( mesh_mesh_outline );
+        
+            // brighter lights
+            var ambientLight = new THREE.AmbientLight( 0x5bd7c4 );
+            scene_header.add( ambientLight );
+        
+            var lights_header = [];
+            lights_header[ 0 ] = new THREE.PointLight( 0xe90269, 1, 0 );
+            lights_header[ 1 ] = new THREE.PointLight( 0xe90269, 1, 0 );
+            lights_header[ 2 ] = new THREE.PointLight( 0x02f1ff, 1, 0 );
+        
+            lights_header[ 0 ].position.set( 0, 200, 0 );
+            lights_header[ 1 ].position.set( 100, 200, 100 );
+            lights_header[ 2 ].position.set( - 100, - 200, - 100 );
+        
+            scene_header.add( lights_header[ 0 ] );
+            scene_header.add( lights_header[ 1 ] );
+            scene_header.add( lights_header[ 2 ] );
+        
+            // light cast shadows
+            lights_header[ 0 ].castShadow = true;
+            lights_header[ 1 ].castShadow = true;
+            lights_header[ 2 ].castShadow = true;
+        
+            // FINISH SCENE SETUP
+            // document.body.appendChild(scene3d.domElement);
+            ThreeJsCanvas.appendChild(renderer_header.domElement);
+            // renderer.render(scene, camera);
+            var render = function () {
+                requestAnimationFrame(render);
+                cube_outlined.rotation.y -= 0.001;
+                mesh_mesh_outline.rotation.y -= 0.001;
+                mesh_otherTorus.rotation.y -= 0.001;
+                renderer_header.render(scene_header, camera_header);
+            };
+            render();
+        </script>
     </body>
 </html>
