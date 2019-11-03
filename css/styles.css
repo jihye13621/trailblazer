@@ -1,6 +1,25 @@
 #canvas {
-    /* background:url(http://www.topscratchcards.com/images/games/888ladies/scratchcard-winning-ticket.jpg); */
-    background: url(../img/map.png);
-    width: 531px;
-    height: 438px;
+    width: 1000px;
+    height: 505px;
+    background-image: url(../img/image.png);
+    border:1px solid red;
+}
+
+#canvas canvas {
+    padding: 0;
+    margin: auto;
+    display: block;
+    width: inherit;
+}
+
+#canvas img {
+    z-index: -1;
+    position: absolute;
+}
+
+.img-responsive {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    display: block;
 }
