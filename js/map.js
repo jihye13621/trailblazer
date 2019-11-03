@@ -373,6 +373,8 @@ function pollToDraw() {
                             ctx.fillCircle(latCoord, longCoord, 10, '#ff0000');
                         }
                     });
+                } else {
+                    console.log('WAITING....');
                 }
             },
             error: 
