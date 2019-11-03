@@ -88,10 +88,30 @@ var proxy = 'https://cors-anywhere.herokuapp.com/';
 
         function make_base() {
             base_image = new Image();
-            base_image.src = 'https://i.imgur.com/flpFsg4.png';
+            base_image.src = 'img/icon_police.png';
             base_image.onload = function(){
                 canvas.node.getContext('2d').globalCompositeOperation = 'source-over';
+                // police top left
                 canvas.node.getContext('2d').drawImage(base_image, 70, 20);
+                canvas.node.getContext('2d').drawImage(base_image, 75, 150);
+                canvas.node.getContext('2d').drawImage(base_image, 170, 50);
+                // bottom right
+                canvas.node.getContext('2d').drawImage(base_image, 870, 320);
+                canvas.node.getContext('2d').drawImage(base_image, 875, 480);
+                canvas.node.getContext('2d').globalCompositeOperation = 'source-over';
+            }
+            base_image2 = new Image();
+            base_image2.src = 'img/icon_fire-fighter.png';
+            base_image2.onload = function(){
+                canvas.node.getContext('2d').globalCompositeOperation = 'source-over';
+                // top middle
+                canvas.node.getContext('2d').drawImage(base_image2, 370, 20);
+                canvas.node.getContext('2d').drawImage(base_image2, 450, 50);
+                canvas.node.getContext('2d').drawImage(base_image2, 470, 50);
+                // bottom right
+                canvas.node.getContext('2d').drawImage(base_image2, 670, 420);
+                canvas.node.getContext('2d').drawImage(base_image2, 750, 450);
+                canvas.node.getContext('2d').drawImage(base_image2, 670, 450);
                 canvas.node.getContext('2d').globalCompositeOperation = 'source-over';
             }
         }
