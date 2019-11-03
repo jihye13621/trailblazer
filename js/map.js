@@ -36,6 +36,14 @@ const alreadySearched =
     }};
 
 
+$(document).ready(function() {
+
+});
+
+
+
+var proxy = 'https://cors-anywhere.herokuapp.com/';
+
 // canvas action
 (function() {
     // drag n drop
@@ -128,7 +136,10 @@ const alreadySearched =
         //     canvas.isDrawing = false;
         // };
 
-        initialFill();
+        // TEST L-SHAPED ROUTE
+        // initialFill(); 
+        // REAL VERSION - POLL TO DRAW
+        pollToDraw();
 
         // test code
         // let initialX = 166;
@@ -330,9 +341,51 @@ const alreadySearched =
     $('#canvas').click(function (e){handleMouseClick(e)});
 
     // DRAG N DROP END
-
 })();
 
+
+function pollToDraw() {
+    let latCoord = 0;
+    let longCoord = 0;
+
+    // poll every second
+    setInterval(function() {
+        // https://trailblazerapp.herokuapp.com/data?fbclid=IwAR0Kmfbm4ul8AQlMoj_sKNQeES618cjjV-l0jL0Ct6x4phXzdxb7uZ9FIlM
+        $.get({
+            url: proxy + 'https://trailblazerapp.herokuapp.com/data?fbclid=IwAR0Kmfbm4ul8AQlMoj_sKNQeES618cjjV-l0jL0Ct6x4phXzdxb7uZ9FIlM?jsoncallback=?',
+            xhrFields: {
+                withCredentials: false
+            },
+            success: function(res) {
+                // console.log("res");
+                // console.log(res);
+                if (res.points && res.points.length) {
+                    const pointsArray = res.points;
+                    pointsArray.forEach(function(eachPoint) {
+                        // console.log(eachPoint);
+                        if (eachPoint.latitude && eachPoint.longitude) {
+                            // console.log(eachPoint.latitude); // x coordinates
+                            // console.log(eachPoint.longitude); // y coordinates
+                            latCoord = eachPoint.latitude;
+                            longCoord = eachPoint.longitude;
+
+                            ctx.globalCompositeOperation = 'destination-out'; // clear color
+                            ctx.fillCircle(latCoord, longCoord, 10, '#ff0000');
+                        }
+                    });
+                }
+            },
+            error: 
+            function(err) { 
+                var statusCode = err.status;
+                if (statusCode >= 400 && statusCode < 500 || statusCode === 0) {
+                    console.log("err");
+                    console.log(err);
+                }
+            }
+        });
+    }, 1000);
+}
 /**
  * initial transparent lines of already searched routes
  */
@@ -354,8 +407,4 @@ function initialFill() {
         ctx.fillCircle(y, 440, 10, '#ff0000');
     }
 }
-
-
-
-
 
