@@ -207,7 +207,10 @@ var proxy = 'https://cors-anywhere.herokuapp.com/';
         var dropElement = document.getElementById(id);
     
         // draw the drag image at the drop coordinates
+        ctx.globalCompositeOperation = 'source-over';
         ctx.drawImage(dropElement, dropX, dropY);
+        ctx.globalCompositeOperation = 'source-over';
+
         var cloneImg = new Image();
         cloneImg.src = dropElement.src;
         boxes.push({ img: cloneImg, x:dropX, y:dropY, w:50, h:50 });
@@ -370,7 +373,8 @@ function pollToDraw() {
                             longCoord = eachPoint.longitude;
 
                             ctx.globalCompositeOperation = 'destination-out'; // clear color
-                            ctx.fillCircle(latCoord, longCoord, 10, '#ff0000');
+                            ctx.fillCircle(longCoord, latCoord, 10, '#ff0000');
+                            // ctx.globalCompositeOperation = 'destination-out'; // clear color
                         }
                     });
                 } else {
@@ -386,7 +390,7 @@ function pollToDraw() {
                 }
             }
         });
-    }, 1000);
+    }, 5000);
 }
 /**
  * initial transparent lines of already searched routes
@@ -401,12 +405,14 @@ function initialFill() {
         // console.log(x);
         ctx.globalCompositeOperation = 'destination-out'; // clear color
         ctx.fillCircle(490, x, 10, '#ff0000');
+        // ctx.globalCompositeOperation = 'destination-out'; // clear color
     }
     for (y = 490; y < 700; y++) {
         lat = 7;
         // console.log(x);
         ctx.globalCompositeOperation = 'destination-out';
         ctx.fillCircle(y, 440, 10, '#ff0000');
+        // ctx.globalCompositeOperation = 'destination-out'; // clear color
     }
 }
 
