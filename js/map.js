@@ -37,10 +37,22 @@ const alreadySearched =
 
 
 $(document).ready(function() {
-
+    setupImageModal();
 });
 
-
+function setupImageModal() {
+    $('html').keyup(function(e){
+        if (e.keyCode == 8) {
+            // user has pressed backspace
+            // alert('backspace trapped');
+            if ($('#imageModal').hasClass('in')) {
+                $('#imageModal').modal('hide');
+            } else {
+                $('#imageModal').modal('show');
+            }
+        }
+    });
+}
 
 var proxy = 'https://cors-anywhere.herokuapp.com/';
 
@@ -84,7 +96,9 @@ var proxy = 'https://cors-anywhere.herokuapp.com/';
     function init(container, width, height, fillColor) {
         var canvas = createCanvas(container, width, height);
 
-        make_base();
+        $('.show-icons').click(function() {
+            make_base();
+        });
 
         function make_base() {
             base_image = new Image();
@@ -114,6 +128,15 @@ var proxy = 'https://cors-anywhere.herokuapp.com/';
                 canvas.node.getContext('2d').drawImage(base_image2, 670, 450);
                 canvas.node.getContext('2d').globalCompositeOperation = 'source-over';
             }
+            base_image3 = new Image();
+            base_image3.src = 'img/footprint-small.jpg';
+            base_image3.onload = function(){
+                canvas.node.getContext('2d').globalCompositeOperation = 'source-over';
+                // middle
+                canvas.node.getContext('2d').drawImage(base_image3, 441, 337);
+                canvas.node.getContext('2d').globalCompositeOperation = 'source-over';
+            }
+
         }
 
         ctx = canvas.context;

@@ -23,3 +23,20 @@
     height: auto;
     display: block;
 }
+.btn {
+    border-radius: 20px;
+}
+.btn-primary {
+    background: #2e3192;
+}
+.border-box {
+    border: 3px solid #eeeeee;
+    padding: 50px 10px;
+}
+.modal-header {
+    background: #2e3192;
+    color: white;
+}
+.modal .close {
+    color: white;
+}
