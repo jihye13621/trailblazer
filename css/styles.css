@@ -6,15 +6,15 @@
 }
 
 #canvas canvas {
-    padding: 0;
+    /* padding: 0;
     margin: auto;
     display: block;
-    width: inherit;
+    width: inherit; */
 }
 
 #canvas img {
-    z-index: -1;
-    position: absolute;
+    /* z-index: -1;
+    position: absolute; */
 }
 
 .img-responsive {
