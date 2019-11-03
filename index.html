@@ -2,13 +2,14 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="generator" content="Jekyll v3.8.5">
         <title>Trailblazer</title>
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <style>
         /* custom styles here */
@@ -52,6 +53,13 @@
                         <li class="nav-item">
                             <a class="nav-link disabled" href="#">Settings</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="#" class="btn btn-primary btn-sm my-2">Start</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="btn btn-secondary btn-sm my-2">Record</a>
+                        </li>
+
                         </ul>
                         <form class="form-inline my-2 my-lg-0">
                         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -69,11 +77,39 @@
                 <div class="container">
                     <!-- <span id="ThreeJsCanvas"></span> -->
                     <h1 class="jumbotron-heading">Trailblazer</h1>
-                    <p class="lead text-muted">search, discover</p>
-                    <p>
+                    <p class="lead text-muted">resource mapping application for first responders</p>
+                    <div class="row" style="background: white;
+                    border-radius: 10px;
+                    padding: 20px;">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 text-center mx-auto">
+                            <h1>
+                                <i class="material-icons">
+                                    perm_phone_msg
+                                </i>
+                            </h1>
+                            <span>mission critical push to talk</span>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 text-center mx-auto">
+                            <h1>
+                                <i class="material-icons">
+                                    rss_feed
+                                </i>
+                            </h1>
+                            <span>direct communication</span>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 text-center mx-auto">
+                            <h1>
+                                <i class="material-icons">
+                                    my_location
+                                </i>
+                            </h1>
+                            <span>track the location of people</span>
+                        </div>
+                    </div>
+                    <!-- <p>
                         <a href="#" class="btn btn-primary my-2">Start</a>
                         <a href="#" class="btn btn-secondary my-2">Record</a>
-                    </p>
+                    </p> -->
                 </div>
             </section>
 
@@ -119,7 +155,7 @@
 
         <!-- Modal -->
         <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog" role="document" style="margin-top: 200px;">
                 <div class="modal-content">
                     <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Image</h5>
