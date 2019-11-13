@@ -10,6 +10,8 @@ app.use(express.static(path.join(__dirname, '')));
 
 app.get('/index', (req, res) => res.sendFile(path.resolve(__dirname, 'index.html')));
 
+app.get('/map', (req, res) => res.sendFile(path.resolve(__dirname, 'map.html')));
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
 

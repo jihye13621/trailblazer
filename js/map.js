@@ -1,4 +1,5 @@
 var ctx;
+var time = 1;
 const sampleJson2 = 
     {"point": {
         "postedBy": "rSTZWwjvwVg6ijEIKLysTYSOGzt2",
@@ -181,6 +182,9 @@ var proxy = 'https://cors-anywhere.herokuapp.com/';
 
         // TEST L-SHAPED ROUTE
         // initialFill(); 
+        setTimeout(function() {
+            initialFillY();
+        }, 5000);
         // REAL VERSION - POLL TO DRAW
         pollToDraw();
 
@@ -435,6 +439,8 @@ function pollToDraw() {
         });
     }, 5000);
 }
+
+
 /**
  * initial transparent lines of already searched routes
  */
@@ -459,3 +465,35 @@ function initialFill() {
     }
 }
 
+// shows routes
+function initialFillY() {
+    let lat = 0;
+
+    // vertical line
+    for (y = 190; y < 440; y++) {
+        lat = y;
+        ctx.globalCompositeOperation = 'destination-out'; // clear color
+        lineAppear(lat, 490);
+        if (y === 439) {
+            initialFillX();
+        }
+    }
+}
+
+function initialFillX() {
+    let long = 0;
+    for (x = 490; x < 700; x++) {
+        long = x;
+        ctx.globalCompositeOperation = 'destination-out';
+        lineAppear(440, long);
+    }
+}
+
+function lineAppear(latVal, longVal){
+    time++;
+    // console.log(time);
+    setTimeout(function() {
+        ctx.fillCircle(longVal, latVal, 10, '#ff0000');
+        // ctx.globalCompositeOperation = 'destination-out'; // clear color
+    }, 1000 + time * 35);
+}
